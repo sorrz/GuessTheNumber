@@ -1,19 +1,7 @@
-﻿using System.Numerics;
-
-namespace GuessTheNumber.Data;
+﻿namespace GuessTheNumber.Data;
 
 public class Game
 {
-    #region Fields
-
-    private static readonly Random rnd = new();
-    private static int theNumber = rnd.Next(1, 100);
-    private static int userNumber = 0;
-    public static int numberOfGuesses = 1;
-
-    #endregion
-
-
     // Initializing Method for each Round
     public static void StartRound()
     {
@@ -35,7 +23,7 @@ public class Game
     // Check if the Guess is a Int Number
     private static void IsNumber(string? userGuess)
     {
-        bool isNumber = int.TryParse(userGuess, out userNumber);
+        var isNumber = int.TryParse(userGuess, out userNumber);
         if (isNumber)
         {
             CheckNumber(userNumber);
@@ -82,4 +70,13 @@ public class Game
             App.Menu();
         }
     }
+
+    #region Fields
+
+    private static readonly Random rnd = new();
+    private static int theNumber = rnd.Next(1, 100);
+    private static int userNumber;
+    public static int numberOfGuesses = 1;
+
+    #endregion
 }
