@@ -6,11 +6,6 @@ namespace GuessTheNumber.Data;
 
 public class Score
 {
-    public Score()
-    {
-
-    }
-
     // Function for listing all the Objects in the Score List
     public static void ListHistory()
     {
@@ -34,23 +29,20 @@ public class Score
     public static void LoadScores()
     {
         SortScore(Scores);
-        
-        
+
+
         var text = File.ReadAllText(filePath);
-        if (string.IsNullOrEmpty(text))
-        {
-            Scores = new List<ScoreModel>();
-        }
-        else
-        {
+        if (!string.IsNullOrEmpty(text))
             Scores = JsonSerializer.Deserialize<List<ScoreModel>>(text);
-        }
+        else
+            Scores = new List<ScoreModel>();
     }
 
     public static void SortScore(List<ScoreModel> scores)
     {
         scores = scores.OrderBy(x => x.NumberOfGuesses).ToList();
-        scores = scores.RemoveRange(4, 1);
+        // var listCount = scores.Count();
+        // scores = scores.RemoveRange(0,1);
     }
 
     private static void WriteToScoreFile(List<ScoreModel> scores)
@@ -70,5 +62,4 @@ public class Score
     private static Score _score;
 
     #endregion
-
 }

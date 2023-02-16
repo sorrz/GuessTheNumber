@@ -1,4 +1,4 @@
-﻿using GuessTheNumber.Data;
+﻿namespace GuessTheNumber.Data;
 
 internal class App
 {

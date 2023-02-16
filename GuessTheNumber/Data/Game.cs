@@ -14,10 +14,20 @@ public class Game
     private static void Guess()
     {
         // Game Logic Below
-        Console.Write(
-            $"A Random Number between 1-100 have been generated,\nplease enter guess no. {numberOfGuesses}: ");
-        var userGuess = Console.ReadLine();
-        IsNumber(userGuess);
+        if (numberOfGuesses < 2)
+        {
+            Console.Write(
+                $"A Random Number between 1-100 have been generated,\nplease enter guess no. {numberOfGuesses}: ");
+            var userGuess = Console.ReadLine();
+            IsNumber(userGuess);
+        }
+        else
+        {
+            Console.Write(
+                $"Please enter guess no. {numberOfGuesses}: ");
+            var userGuess = Console.ReadLine();
+            IsNumber(userGuess);
+        }
     }
 
     // Check if the Guess is a Int Number

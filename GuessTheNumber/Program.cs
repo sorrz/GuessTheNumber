@@ -1,2 +1,4 @@
-﻿var g = new App();
+﻿using GuessTheNumber.Data;
+
+var g = new App();
 g.Start();
