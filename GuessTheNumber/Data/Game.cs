@@ -1,5 +1,4 @@
-﻿using System.Formats.Asn1;
-using GuessTheNumber.Model;
+﻿using GuessTheNumber.Model;
 
 namespace GuessTheNumber.Data;
 
@@ -51,6 +50,13 @@ public class Game
     // Check the Verified INT against the Random Number for Win Conditions
     private static void CheckNumber(int userNumber)
     {
+        // Catch Faulty Numbers
+        if (userNumber < 1 || userNumber > 100)
+        {
+            Console.WriteLine("Sorry, you you should guess between 1 and 100");
+            Guess();
+        }
+
         // Guess is Higher
         if (userNumber > theNumber)
         {
@@ -72,23 +78,25 @@ public class Game
         {
             Console.Clear();
             Console.WriteLine($"Congratulations, you did it in {numberOfGuesses} guesses.");
-            
+
             // Save A highscore if it's lower then the current in list
-            int index = 0;
-            foreach (ScoreModel _score in Score.Scores)
+            var index = 0;
+            foreach (var _score in Score.Scores)
             {
                 // Check the list and craete a new Object to insert at the right Index.
                 if (numberOfGuesses < _score.NumberOfGuesses)
                 {
                     Console.Write("\n Please Enter your Name: ");
                     var name = Console.ReadLine();
-                    Console.WriteLine($"You've gotten placement numer {index+1}");
+                    Console.WriteLine($"You've gotten placement numer {index + 1}");
                     Score.Scores.Insert(index, new ScoreModel(name, numberOfGuesses));
                     break;
                 }
+
                 // Increase the Index to keep tabs on where we are in the list.
                 index++;
             }
+
             Console.WriteLine("Press any key to take you back to the Menu");
             Console.ReadKey(true);
             // Pallet Cleanser

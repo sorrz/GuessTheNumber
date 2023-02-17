@@ -1,5 +1,4 @@
-﻿using System.Runtime.ExceptionServices;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
 using GuessTheNumber.Model;
 
@@ -43,7 +42,7 @@ public class Score
         Score.Scores = Scores.OrderBy(x => x.NumberOfGuesses).ToList();
         if (Score.Scores.Count() > 5)
         {
-            Score.Scores.RemoveRange(5, (Score.Scores.Count()-5));
+            Score.Scores.RemoveRange(5, Score.Scores.Count() - 5);
             WriteToScoreFile();
         }
     }
@@ -61,6 +60,6 @@ public class Score
 
     private static readonly string filePath =
         @"C:\Users\danst\source\repos\GuessTheNumber\GuessTheNumber\HighScore\highscore.json";
-    
+
     #endregion
 }

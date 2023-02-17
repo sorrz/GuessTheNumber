@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices.JavaScript;
-
-namespace GuessTheNumber.Model;
+﻿namespace GuessTheNumber.Model;
 
 public class ScoreModel
 {
@@ -10,7 +8,7 @@ public class ScoreModel
         NumberOfGuesses = numberOfGuesses;
         WhenScored = DateTime.Now;
     }
-    
+
     public string? Name { get; set; }
     public int NumberOfGuesses { get; set; }
     public DateTime WhenScored { get; set; }
