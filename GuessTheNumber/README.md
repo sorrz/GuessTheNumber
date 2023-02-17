@@ -28,7 +28,7 @@ The assignment:
 #### VG:<br>
 
 [x]Make the program use a "Low Score List" that saves the 5 lowest scores in a file.<br>
-[ ]If you hit a lowscore, you should be prompted to enter your name and your result should be saved to the corresponding
+[x]If you hit a lowscore, you should be prompted to enter your name and your result should be saved to the corresponding
 spot on the list.<br>
 [x]In the Meny you should have the option to show the lowscore-list, which should display it on the screen.<br>
 [x]Date, Time, Name and Guesses should be saved for each low-score entry.<br>
@@ -45,6 +45,6 @@ TODO:<br>
 [-]Fix the Menu<br><br>
 [-]Needs a graphical update<br>
 --Score<br>
-[ ]Create Objects of the Score Class for each Round<br>
+[x]Create Objects of the Score Class for each Round<br>
 [x]Read all lines in the File and convert to objects to save to a list with the type Score<br>
-[ ]Sort list.Asc by score and save the top five to the File upon closing<br> 
+[x]Sort list.Asc by score and save the top five to the File upon closing<br> 

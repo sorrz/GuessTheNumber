@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.ExceptionServices;
+using System.Text;
 using System.Text.Json;
 using GuessTheNumber.Model;
 
@@ -9,6 +10,7 @@ public class Score
     // Function for listing all the Objects in the Score List
     public static void ListHistory()
     {
+        SortScore(Scores);
         // Clear and List all Object-contents per Object
         Console.Clear();
         var i = 1;
@@ -29,8 +31,6 @@ public class Score
     public static void LoadScores()
     {
         SortScore(Scores);
-
-
         var text = File.ReadAllText(filePath);
         if (!string.IsNullOrEmpty(text))
             Scores = JsonSerializer.Deserialize<List<ScoreModel>>(text);
@@ -38,28 +38,29 @@ public class Score
             Scores = new List<ScoreModel>();
     }
 
-    public static void SortScore(List<ScoreModel> scores)
+    public static void SortScore(List<ScoreModel> Scores)
     {
-        scores = scores.OrderBy(x => x.NumberOfGuesses).ToList();
-        // var listCount = scores.Count();
-        // scores = scores.RemoveRange(0,1);
+        Score.Scores = Scores.OrderBy(x => x.NumberOfGuesses).ToList();
+        if (Score.Scores.Count() > 5)
+        {
+            Score.Scores.RemoveRange(5, (Score.Scores.Count()-5));
+            WriteToScoreFile();
+        }
     }
 
-    private static void WriteToScoreFile(List<ScoreModel> scores)
+    private static void WriteToScoreFile()
     {
-        var content = JsonSerializer.Serialize(scores);
+        var content = JsonSerializer.Serialize(Scores);
         File.WriteAllText(filePath, content, Encoding.UTF8);
     }
 
 
     #region Fields
 
-    private static List<ScoreModel> Scores = new();
+    public static List<ScoreModel> Scores = new();
 
     private static readonly string filePath =
         @"C:\Users\danst\source\repos\GuessTheNumber\GuessTheNumber\HighScore\highscore.json";
-
-    private static Score _score;
-
+    
     #endregion
 }

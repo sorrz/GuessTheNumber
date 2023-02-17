@@ -1,4 +1,7 @@
-﻿namespace GuessTheNumber.Data;
+﻿using System.Formats.Asn1;
+using GuessTheNumber.Model;
+
+namespace GuessTheNumber.Data;
 
 public class Game
 {
@@ -69,10 +72,25 @@ public class Game
         {
             Console.Clear();
             Console.WriteLine($"Congratulations, you did it in {numberOfGuesses} guesses.");
+            
+            // Save A highscore if it's lower then the current in list
+            int index = 0;
+            foreach (ScoreModel _score in Score.Scores)
+            {
+                // Check the list and craete a new Object to insert at the right Index.
+                if (numberOfGuesses < _score.NumberOfGuesses)
+                {
+                    Console.Write("\n Please Enter your Name: ");
+                    var name = Console.ReadLine();
+                    Console.WriteLine($"You've gotten placement numer {index+1}");
+                    Score.Scores.Insert(index, new ScoreModel(name, numberOfGuesses));
+                    break;
+                }
+                // Increase the Index to keep tabs on where we are in the list.
+                index++;
+            }
             Console.WriteLine("Press any key to take you back to the Menu");
             Console.ReadKey(true);
-            // TODO: HighScore Handling
-
             // Pallet Cleanser
             numberOfGuesses = 1;
             theNumber = rnd.Next(1, 100);
