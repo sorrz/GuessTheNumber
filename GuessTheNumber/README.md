@@ -41,6 +41,7 @@ TODO:<br>
 [-]While Loop Running while !true, set to true when number is hit<br>
 [x]Fixed with a check instead<br>
 [-]Make a splash screen<br>
+[x]Add Value Handling to ensure player uses values between 1 and 100<br>
 --App<br>
 [-]Fix the Menu<br><br>
 [-]Needs a graphical update<br>
