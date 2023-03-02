@@ -40,11 +40,11 @@ TODO:<br>
 [x]Write the Logic for Lower or Higher, output from Methods that fit<br>
 [-]While Loop Running while !true, set to true when number is hit<br>
 [x]Fixed with a check instead<br>
-[-]Make a splash screen<br>
+[x]Make a splash screen<br>
 [x]Add Value Handling to ensure player uses values between 1 and 100<br>
 --App<br>
-[-]Fix the Menu<br><br>
-[-]Needs a graphical update<br>
+[x]Fix the Menu<br><br>
+[x]Needs a graphical update<br>
 --Score<br>
 [x]Create Objects of the Score Class for each Round<br>
 [x]Read all lines in the File and convert to objects to save to a list with the type Score<br>
