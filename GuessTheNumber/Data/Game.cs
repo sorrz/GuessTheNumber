@@ -36,15 +36,12 @@ public class Game
     private static void IsNumber(string? userGuess)
     {
         var isNumber = int.TryParse(userGuess, out userNumber);
-        if (isNumber)
-        {
+        if (isNumber) 
             CheckNumber(userNumber);
-        }
         else
-        {
             Console.WriteLine("Sorry, you did not enter a valid integer number, try again");
             Guess();
-        }
+        
     }
 
     // Check the Verified INT against the Random Number for Win Conditions
@@ -83,7 +80,7 @@ public class Game
             var index = 0;
             foreach (var _score in Score.Scores)
             {
-                // Check the list and craete a new Object to insert at the right Index.
+                // Check the list and create a new Object to insert at the right Index.
                 if (numberOfGuesses < _score.NumberOfGuesses)
                 {
                     Console.Write("\n Please Enter your Name: ");

@@ -25,25 +25,24 @@ internal class App
         Console.WriteLine("2.              Display High-Score");
         Console.WriteLine("Esc                   Exit Program");
         Console.Write("");
-        switch (Console.ReadKey().Key)
+        while (true)
         {
-            case ConsoleKey.NumPad1:
-            case ConsoleKey.D1:
-                Game.StartRound();
-                break;
-            case ConsoleKey.NumPad2:
-            case ConsoleKey.D2:
-                Score.ListHistory();
-                break;
-            case ConsoleKey.Escape:
-                Environment.Exit(0);
-                break;
-            case ConsoleKey.Enter:
-                Menu();
-                break;
-            default:
-                Menu();
-                break;
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.NumPad1:
+                case ConsoleKey.D1:
+                    Game.StartRound();
+                    break;
+                case ConsoleKey.NumPad2:
+                case ConsoleKey.D2:
+                    Score.ListHistory();
+                    break;
+                case ConsoleKey.Escape:
+                    Environment.Exit(0);
+                    break;
+             
+            }    
         }
+        
     }
 }
