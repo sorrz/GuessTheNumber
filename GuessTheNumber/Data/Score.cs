@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 using System.Text.Json;
 using GuessTheNumber.Model;
 
@@ -59,7 +63,7 @@ public class Score
     public static List<ScoreModel> Scores = new();
 
     private static readonly string filePath =
-        @"C:\Users\danst\source\repos\GuessTheNumber\GuessTheNumber\HighScore\highscore.json";
+        @"highscore.json";
 
     #endregion
 }

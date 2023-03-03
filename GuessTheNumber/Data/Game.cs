@@ -1,4 +1,5 @@
-﻿using GuessTheNumber.Model;
+﻿using System;
+using GuessTheNumber.Model;
 
 namespace GuessTheNumber.Data;
 
