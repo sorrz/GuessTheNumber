@@ -33,6 +33,10 @@ public class Score
     // Function used for pre-loading the highscore file into a list of Objects.
     public static void LoadScores()
     {
+        if (!File.Exists(filePath)) 
+        {
+            File.WriteAllText(filePath, string.Empty);
+        }
         SortScore(Scores);
         var text = File.ReadAllText(filePath);
         if (!string.IsNullOrEmpty(text))
